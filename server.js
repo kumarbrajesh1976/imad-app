@@ -24,22 +24,22 @@ var articles = {
            
     },
 'article-two':  {
-    title: 'Article Three | Brajesh Singh',
+    title: 'Article Two | Brajesh Singh',
         heading: 'Article Three',
         date: 'Sep 1,2016',
         content: ` 
                     <p>
-                        This is the content of my third article.This is the content of my third article.
+                        This is the content of my second article.This is the content of my second article.
                     </p>
                     `
 },
 'article-three': {
     title: 'Article Two | Brajesh Singh',
-        heading: 'Article Two',
+        heading: 'Article Three',
         date: 'Sep 10,2016',
         content: ` 
                     <p>
-                        This is the content of my second article.This is the content of my second article.
+                        This is the content of my three article.This is the content of my three article.
                     </p>
                     `
 }
