@@ -25,7 +25,7 @@ var articles = {
     },
 'article-two':  {
     title: 'Article Two | Brajesh Singh',
-        heading: 'Article Three',
+        heading: 'Article Two',
         date: 'Sep 1,2016',
         content: ` 
                     <p>
@@ -34,7 +34,7 @@ var articles = {
                     `
 },
 'article-three': {
-    title: 'Article Two | Brajesh Singh',
+    title: 'Article Three | Brajesh Singh',
         heading: 'Article Three',
         date: 'Sep 10,2016',
         content: ` 
