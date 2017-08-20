@@ -15,6 +15,11 @@ var config = {
 var app = express();
 app.use(morgan('combined'));
 
+
+
+
+
+
 var Pool = new Pool(config);
 app.get('/test-db',function(req,res){
   //make a select request
