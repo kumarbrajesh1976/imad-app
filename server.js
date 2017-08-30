@@ -55,6 +55,25 @@ app.post('/create-user', function(req, res){
         }
 });
 });
+
+app.post('/login',req, res){
+  var username = req.body.username;
+    var password = req.body.password;
+    
+       pool.query('SELECT * FROM "user" username = $1',[username], function(err, result) {
+        if (err){
+            res.status(500).send(err.toString());
+        } else {
+            if (result.rows.length == 0){
+                res.send(400.send('username or password is invalid'))
+            } else {
+                var dbString = result.rows.
+            }
+            res.send('User successfully created :' + username);
+        }
+});  
+}
+
 var counter=0;
 app.get('/counter', function (req, res) {
     counter=counter+1;
