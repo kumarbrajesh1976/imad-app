@@ -80,7 +80,7 @@ app.post('/login',req, res){
            
         }
         });  
-   });  
+});  
 
 
 var counter=0;
