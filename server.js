@@ -64,15 +64,24 @@ app.post('/login',req, res){
         if (err){
             res.status(500).send(err.toString());
         } else {
-            if (result.rows.length == 0){
-                res.send(400.send('username or password is invalid'))
+            if (result.rows.length === 0){
+                res.send(403).send('username or password is invalid');
             } else {
-                var dbString = result.rows.
+                 res.send('User successfully created :' + username);
+                var dbString = result.rows[0].password;
+                var salt = dbString.split('$')[2];
+                var hashedPassword = hash(password, salt);
+                if (hashedPassword === dbString) {
+                    res.send('Credentials are correct');
+                } else {
+                      res.send(403).send('username or password is invalid');
+                }
             }
-            res.send('User successfully created :' + username);
+           
         }
-});  
-}
+        });  
+   });  
+
 
 var counter=0;
 app.get('/counter', function (req, res) {
