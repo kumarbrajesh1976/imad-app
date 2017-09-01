@@ -28,7 +28,7 @@ submit.onclick=function(){
  console.log(password);
  request.open('POST','http://kumarbrajesh1976.imad.hasura-app.io/login',true);
  request.setRequestHeader('Cotent-Type','application/json');
- request.send(JSON.stringify({"username": username, "password": password}));
+ request.send(JSON.stringify({"username":username,"password": password}));
  
 };
 
