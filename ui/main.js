@@ -11,15 +11,12 @@ submit.onclick=function(){
             if (request.status === 200){
               console.log('User logged in');
               alert('logged in successfully');
-        } else {
-            if (request.status===403){
+        } else if (request.status===403){
                 alert('Username or password is incorrect');
-            } else { 
-                if  (request.status === 500) {
+            } else if  (request.status === 500) {
                 alert('Something went wrong on the server');
                 }
-            }
-        }
+         
         //not done
     }
     
