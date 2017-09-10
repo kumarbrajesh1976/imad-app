@@ -9,7 +9,8 @@ var config = {
     user: 'kumarbrajesh1976',
     database: 'kumarbrajesh1976',
     host: 'db.imad.hasura-app.io',
-    port: 5432,
+    //port: 5432,
+    port: '5432',
     password: process.env.DB_PASSWORD
 };
 
@@ -51,7 +52,9 @@ app.post('/create-user', function(req, res){
         if (err) {
             res.status(500).send(err.toString());
         } else {
-            res.send('User successfully created :' + username);
+            //res.send('User successfully created :' + username);
+            var message = 'User successfully created: ' + username;
+            res.send(JSON.stringify({"message":message}));
         }
 });
 });
@@ -65,16 +68,19 @@ app.post('/login', function (req, res) {
             res.status(500).send(err.toString());
         } else {
             if (result.rows.length === 0){
-                res.status(403).send('username or password is invalid');
+               // res.status(403).send('username or password is invalid');
+               res.status(403).send(JSON.stringify({"error":"username/password is invalid"}));
             } else {
                
                 var dbString = result.rows[0].password;
                 var salt = dbString.split('$')[2];
                 var hashedPassword = hash(password, salt);
                 if (hashedPassword === dbString) {
-                    res.send('Credentials are correct');
+                  //  res.send('Credentials are correct');
+                  res.send(JSON.stringify({"message":"credentials correct"}));
                 } else {
-                      res.send(403).send('username or password is invalid');
+                    //  res.send(403).send('username or password is invalid');
+                    res.status(403).send(JSON.stringify({"error":"username/password is invalid"}));
                 }
             }
         }
